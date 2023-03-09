@@ -12,6 +12,7 @@ module.exports = defineConfig({
     $schema: 'https://on.cypress.io/cypress.schema.json',
     experimentalStudio: true,
     screenshotOnRunFailure: true,
+    videoOnRunFailure: true,
 
   e2e: {
     experimentalStudio: true,
