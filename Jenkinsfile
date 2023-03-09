@@ -65,6 +65,7 @@ pipeline {
 
            stage('Allure Report generation'){
                     steps{
+                      bat "allure generate allure-results --clean -o allure-report"
             allure([
                 includeProperties : true,
                 jdk : 'java',
