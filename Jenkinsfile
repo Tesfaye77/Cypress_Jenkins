@@ -51,12 +51,14 @@ pipeline {
         stage('Testing') {
             steps {
                 bat "npm i"
-                bat "npx cypress run --browser ${BROWSER} --spec ${SPEC}"
+                bat "npx cypress run --browser ${BROWSER} --spec ${SPEC} --env allure=true"
+                bat "npm run allure:report"
             }
         }
         
         stage('Deploy'){
             steps {
+    
                 echo "Deploying"
             }
         }
@@ -76,6 +78,7 @@ pipeline {
                 message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER}\n Tests:${SPEC} executed at ${BROWSER} \n More info at: ${env.BUILD_URL}HTML_20Report/"
             
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+            allure includeProperties: false, jdk: '', results: [[path: 'allure-report']]
             deleteDir()
         }
     }
