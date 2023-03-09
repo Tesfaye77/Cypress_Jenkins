@@ -51,7 +51,7 @@ pipeline {
         stage('Testing') {
             steps {
                 bat "npm i"
-                bat "npx NO_COLOR=1 cypress run --browser ${BROWSER} --spec ${SPEC} --env allure=true"
+                bat "npx cypress run --browser ${BROWSER} --spec ${SPEC} --env allure=true"
                 
             }
         }
