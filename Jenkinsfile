@@ -14,6 +14,12 @@ pipeline {
     //The agent section specifies where the entire Pipeline, or a specific stage, 
     //will execute in the Jenkins environment depending on where the agent section is placed.
     agent any
+
+       tools{
+        maven 'maven'
+        allure 'allure'
+        jdk 'java'
+        }
     
     //The environment directive specifies a sequence of key-value pairs which will be defined
     //as environment variables for all steps, or stage-specific steps, depending on where the environment directive is located within the Pipeline.
@@ -65,17 +71,17 @@ pipeline {
 
            stage('Allure Report generation'){
                     steps{
-                      bat "allure generate allure-results --clean -o allure-report"
+                    
             allure([
                 includeProperties : true,
                 jdk : 'java',
                 properties : [[key: 'release version', value: '4.0.2']],
                 reportBuildPolicy : 'ALWAYS',
-                results : [[path: 'allure-report']]
+                results : [[path: 'allure-results']]
             ])
         }}
 
-         stage('Publish Extent Report'){
+         stage('Publis Report'){
              steps{
                       publishHTML([allowMissing: false,
                                    alwaysLinkToLastBuild: false,
@@ -84,7 +90,8 @@ pipeline {
                                    reportFiles: 'index.html',
                                    reportName: 'HTML Report',
                                    reportTitles: '',
-                                   useWrapperFileDirectly: true])
+                                //    useWrapperFileDirectly: true
+                                   ])
              }
          }
 
