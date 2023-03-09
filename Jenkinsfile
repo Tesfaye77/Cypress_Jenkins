@@ -62,24 +62,50 @@ pipeline {
                 echo "Deploying"
             }
         }
+
+           stage('Allure Report generation'){
+                    steps{
+            allure([
+                includeProperties : true,
+                jdk : 'java',
+                properties : [[key: 'release version', value: '4.0.2']],
+                reportBuildPolicy : 'ALWAYS',
+                results : [[path: 'allure-report']]
+            ])
+        }}
+
+         stage('Publish Extent Report'){
+             steps{
+                      publishHTML([allowMissing: false,
+                                   alwaysLinkToLastBuild: false,
+                                   keepAll: true,
+                                   reportDir: 'cypress/report',
+                                   reportFiles: 'index.html',
+                                   reportName: 'HTML Report',
+                                   reportTitles: '',
+                                   useWrapperFileDirectly: true])
+             }
+         }
+
+
     }
 
-    post {
-        always {
-            //The script step takes a block of Scripted Pipeline and executes that in the Declarative Pipeline. 
-            //For most use-cases, the script step should be unnecessary in Declarative Pipelines, but it can provide
-            //a useful "escape hatch." script blocks of non-trivial size and/or complexity should be moved into Shared Libraries instead.
-            script {
-                BUILD_USER = getBuildUser()
-            }
+    // post {
+    //     always {
+    //         //The script step takes a block of Scripted Pipeline and executes that in the Declarative Pipeline. 
+    //         //For most use-cases, the script step should be unnecessary in Declarative Pipelines, but it can provide
+    //         //a useful "escape hatch." script blocks of non-trivial size and/or complexity should be moved into Shared Libraries instead.
+    //         script {
+    //             BUILD_USER = getBuildUser()
+    //         }
             
-            slackSend channel: '#jenkins-example',
-                color: COLOR_MAP[currentBuild.currentResult],
-                message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER}\n Tests:${SPEC} executed at ${BROWSER} \n More info at: ${env.BUILD_URL}HTML_20Report/"
+    //         slackSend channel: '#jenkins-example',
+    //             color: COLOR_MAP[currentBuild.currentResult],
+    //             message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER}\n Tests:${SPEC} executed at ${BROWSER} \n More info at: ${env.BUILD_URL}HTML_20Report/"
             
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
-            allure includeProperties: false, jdk: '', results: [[path: 'allure-report']]
-            deleteDir()
-        }
-    }
+    //         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+    //         allure includeProperties: false, jdk: '', results: [[path: 'allure-report']]
+    //         deleteDir()
+    //     }
+    // }
 }
