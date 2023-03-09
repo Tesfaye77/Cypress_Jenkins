@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
 
-    "cy:run": "NO_COLOR=1 cypress run --env allure=true",
+    "cy:run": "cypress run --env allure=true",
     "clean:folders": "rm -R -f allure-report/* && rm -R -f allure-results/*",
     "tests": "npm run cy:run || npm run aftertest",
     "allure:report": "allure generate allure-results --clean -o allure-report && allure open allure-report",
@@ -13,10 +13,10 @@
 
     "test": "test",
     "cypress:open": "cypress open",
-    "cypress:runDefault": "NO_COLOR=1 cypress run --spec cypress/integration/examples/*.spec.js",
-    "cypress:chrome": "NO_COLOR=1 cypress run --browser chrome --spec cypress/integration/examples/*.spec.js",
-    "cypress:edge": "NO_COLOR=1 cypress run --browser edge --spec cypress/integration/examples/*.spec.js",
-    "cypress:runChromeHeadless": "NO_COLOR=1 cypress run --headless --browser chrome --spec cypress/integration/examples/*.spec.js --record --key 4bc50df7-5eee-4147-8eb3-ccea611c8d4b"
+    "cypress:runDefault": "cypress run --spec cypress/integration/examples/*.spec.js",
+    "cypress:chrome": "cypress run --browser chrome --spec cypress/integration/examples/*.spec.js",
+    "cypress:edge": "cypress run --browser edge --spec cypress/integration/examples/*.spec.js",
+    "cypress:runChromeHeadless": "cypress run --headless --browser chrome --spec cypress/integration/examples/*.spec.js --record --key 4bc50df7-5eee-4147-8eb3-ccea611c8d4b"
   },
   "keywords": [
     "e2e",
