@@ -56,8 +56,10 @@ pipeline {
         
         stage('Testing') {
             steps {
-                bat "npm i"
+                catchError(buildResult: 'FAILURE', stageResult: 'FAILURE'){
+                    bat "npm i"
                 bat "npx cypress run --browser ${BROWSER} --spec ${SPEC} --env allure=true"
+                }
                 
             }
         }
@@ -71,14 +73,17 @@ pipeline {
 
            stage('Allure Report generation'){
                     steps{
-                    
-            allure([
+                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE'){
+                     allure([
                 includeProperties : true,
                 jdk : 'java',
                 properties : [[key: 'release version', value: '4.0.2']],
                 reportBuildPolicy : 'ALWAYS',
                 results : [[path: 'allure-results']]
             ])
+              
+             }     
+           
         }}
 
          stage('Publis Report'){
