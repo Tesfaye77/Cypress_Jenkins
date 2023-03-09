@@ -52,7 +52,7 @@ pipeline {
             steps {
                 bat "npm i"
                 bat "npx cypress run --browser ${BROWSER} --spec ${SPEC} --env allure=true"
-                bat "npm run allure:report"
+                
             }
         }
         
