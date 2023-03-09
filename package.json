@@ -4,9 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules\\.bin\\cypress run --config pageLoadTimeout=10000",
-    "runtests":"npm run test --"
+    "test": "test",
+    "cypress:open": "cypress open",
+    "cypress:runDefault": "cypress run --spec cypress/integration/examples/*.spec.js",
+    "cypress:chrome": "cypress run --browser chrome --spec cypress/integration/examples/*.spec.js",
+    "cypress:edge": "cypress run --browser edge --spec cypress/integration/examples/*.spec.js",
+    "cypress:runChromeHeadless": "cypress run --headless --browser chrome --spec cypress/integration/examples/*.spec.js --record --key 4bc50df7-5eee-4147-8eb3-ccea611c8d4b"
   },
+  "keywords": [
+    "e2e",
+    "automation",
+    "framework",
+    "cypress"
+  ],
+
   "author": "Ulrich",
   "license": "ISC",
   "devDependencies": {
