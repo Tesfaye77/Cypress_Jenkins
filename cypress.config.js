@@ -10,10 +10,9 @@ module.exports = defineConfig({
   },
   chromeWebSecurity: false,
     $schema: 'https://on.cypress.io/cypress.schema.json',
-    projectId: ioceso,
     experimentalStudio: true,
     screenshotOnRunFailure: true,
-    
+
   e2e: {
     experimentalStudio: true,
     setupNodeEvents(on, config) {
