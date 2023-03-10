@@ -1,6 +1,6 @@
 /// <reference types="cypress"/>
 
-describe('My TestSuite', () => 
+describe('Login or Logout', () => 
 
 {
   let register;

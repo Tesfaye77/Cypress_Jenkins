@@ -7,5 +7,9 @@
   "email": "ub@gmail.com",
   "company": "Tesfaye",
   "password": "Tesfaye7",
-  "confirmpassword": "Tesfaye7"
+  "confirmpassword": "Tesfaye7",
+  "productName":["adidas","Apple","computer"],
+  "size": "21",
+  "quantity": "2"
+
 }

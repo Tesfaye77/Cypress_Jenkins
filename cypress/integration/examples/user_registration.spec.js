@@ -1,6 +1,6 @@
 /// <reference types="cypress"/>
 
-describe('My TestSuite', () => 
+describe('My User Registration', () => 
 
 {
   let register;
@@ -16,7 +16,7 @@ describe('My TestSuite', () =>
     {
       cy.visit('https://demo.nopcommerce.com/')
       cy.title().should('eq','nopCommerce demo store')
-      /* ==== Generated with Cypress Studio ==== */
+    
       cy.get('.ico-register').should('be.visible').click();
       cy.get('#gender-male').check().should('be.checked').and('have.value','M');
       cy.get('#FirstName').should('be.visible').should('be.enabled').type(register.firstname);
@@ -31,7 +31,7 @@ describe('My TestSuite', () =>
       cy.get('#register-button').should('be.visible').click();
       cy.get('.result').should('be.visible');
       cy.get('.buttons > .button-1').click();
-      /* ==== End Cypress Studio ==== */
+
     })
 
 
