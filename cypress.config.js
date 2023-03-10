@@ -10,7 +10,6 @@ module.exports = defineConfig({
   },
   chromeWebSecurity: false,
     $schema: 'https://on.cypress.io/cypress.schema.json',
-    experimentalStudio: true,
     screenshotOnRunFailure: true,
     videoOnRunFailure: true,
 
