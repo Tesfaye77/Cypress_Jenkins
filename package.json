@@ -10,6 +10,7 @@
     "allure:report": "allure generate allure-results --clean -o allure-report && allure open allure-report",
     "aftertest": "npm run allure:report",
     "test": "test",
+    "cy:parallel": "cypress-parallel -d cypress/integration/examples/ -t 2 -s tests",
     "cypress:open": "cypress open",
     "cypress:runDefault": "cypress run --spec cypress/integration/examples/*.spec.js",
     "cypress:chrome": "cypress run --browser chrome --spec cypress/integration/examples/*.spec.js",
