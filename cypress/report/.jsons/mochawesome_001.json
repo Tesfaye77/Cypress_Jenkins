@@ -1,0 +1,170 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 3,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-03-13T15:59:36.868Z",
+    "end": "2023-03-13T16:01:07.278Z",
+    "duration": 90410,
+    "testsRegistered": 4,
+    "passPercent": 75,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "15f37cc9-e35b-49b4-90aa-670c1d434ba3",
+      "title": "",
+      "fullFile": "cypress\\integration\\examples\\HandlingUIElements2.js",
+      "file": "cypress\\integration\\examples\\HandlingUIElements2.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2e9d2dea-1276-4b4a-98a4-5b8f6322b6f8",
+          "title": "UI Elements2",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Hobbies check boxes",
+              "fullTitle": "UI Elements2 Hobbies check boxes",
+              "timedOut": null,
+              "duration": 40373,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demo.automationtesting.in/Register.html');\ncy.url().should('include', 'automationtesting');\ncy.get('#checkbox1').check().should('be.checked').and('have.value', 'Cricket');\ncy.get('#checkbox2').check().should('be.checked').and('have.value', 'Movies');\ncy.get('#checkbox3').check().should('be.checked').and('have.value', 'Hockey');\ncy.get('#checkbox1').uncheck().should('not.be.checked').and('have.value', 'Cricket');\ncy.get('#checkbox2').uncheck().should('not.be.checked').and('have.value', 'Movies');\ncy.get('#checkbox3').uncheck().should('not.be.checked').and('have.value', 'Hockey');\ncy.get('input[type=checkbox]').check(['Cricket', 'Hockey']);",
+              "err": {},
+              "uuid": "ffb7c61a-14a5-4391-acf9-53f3e8f010a1",
+              "parentUUID": "2e9d2dea-1276-4b4a-98a4-5b8f6322b6f8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Skills Drop Down",
+              "fullTitle": "UI Elements2 Skills Drop Down",
+              "timedOut": null,
+              "duration": 21672,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demo.automationtesting.in/Register.html');\ncy.url().should('include', 'automationtesting');\ncy.get('#Skills').select('Android').should('have.value', 'Android');",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed trying to load:\n\nhttps://demo.automationtesting.in/Register.html\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > Error: connect ETIMEDOUT 217.21.91.189:443\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer",
+                "estack": "CypressError: `cy.visit()` failed trying to load:\n\nhttps://demo.automationtesting.in/Register.html\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > Error: connect ETIMEDOUT 217.21.91.189:443\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer\n    at <unknown> (https://demo.automationtesting.in/__cypress/runner/cypress_runner.js:138252:82)\n    at visitFailedByErr (https://demo.automationtesting.in/__cypress/runner/cypress_runner.js:137644:12)\n    at <unknown> (https://demo.automationtesting.in/__cypress/runner/cypress_runner.js:138251:11)\n    at tryCatcher (https://demo.automationtesting.in/__cypress/runner/cypress_runner.js:8914:23)\n    at Promise._settlePromiseFromHandler (https://demo.automationtesting.in/__cypress/runner/cypress_runner.js:6849:31)\n    at Promise._settlePromise (https://demo.automationtesting.in/__cypress/runner/cypress_runner.js:6906:18)\n    at Promise._settlePromise0 (https://demo.automationtesting.in/__cypress/runner/cypress_runner.js:6951:10)\n    at Promise._settlePromises (https://demo.automationtesting.in/__cypress/runner/cypress_runner.js:7027:18)\n    at _drainQueueStep (https://demo.automationtesting.in/__cypress/runner/cypress_runner.js:3621:12)\n    at _drainQueue (https://demo.automationtesting.in/__cypress/runner/cypress_runner.js:3614:9)\n    at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://demo.automationtesting.in/__cypress/runner/cypress_runner.js:3630:5)\n    at Async.drainQueues (https://demo.automationtesting.in/__cypress/runner/cypress_runner.js:3500:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/integration/examples/HandlingUIElements2.js:26:9)\n\nFrom Node.js Internals:\n  Error: connect ETIMEDOUT 217.21.91.189:443\n      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1187:16)",
+                "diff": null
+              },
+              "uuid": "9db30699-bef0-41d3-bb5f-6b85a0952284",
+              "parentUUID": "2e9d2dea-1276-4b4a-98a4-5b8f6322b6f8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Languages Multi Select",
+              "fullTitle": "UI Elements2 Languages Multi Select",
+              "timedOut": null,
+              "duration": 4890,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demo.automationtesting.in/Register.html');\ncy.url().should('include', 'automationtesting');\ncy.get('#msdd').click();\ncy.get('.ui-corner-all').contains('English').click();\ncy.get('.ui-corner-all').contains('Japanese').click();",
+              "err": {},
+              "uuid": "cfc10f1a-1941-4521-944c-4f6a20236980",
+              "parentUUID": "2e9d2dea-1276-4b4a-98a4-5b8f6322b6f8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Search contries searchable drop down",
+              "fullTitle": "UI Elements2 Search contries searchable drop down",
+              "timedOut": null,
+              "duration": 3631,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demo.automationtesting.in/Register.html');\ncy.url().should('include', 'automationtesting');\ncy.get('[role=combobox]').click({\n  force: true\n});\ncy.get('.select2-search__field').type('Ind');\ncy.get('.select2-search__field').type('{enter}');",
+              "err": {},
+              "uuid": "b6a801a4-20d6-4f02-bc98-1abeccc0abef",
+              "parentUUID": "2e9d2dea-1276-4b4a-98a4-5b8f6322b6f8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ffb7c61a-14a5-4391-acf9-53f3e8f010a1",
+            "cfc10f1a-1941-4521-944c-4f6a20236980",
+            "b6a801a4-20d6-4f02-bc98-1abeccc0abef"
+          ],
+          "failures": [
+            "9db30699-bef0-41d3-bb5f-6b85a0952284"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 70566,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress\\report\\.jsons",
+        "charts": true,
+        "reportPageTitle": "Ulrich Demo Report",
+        "embeddedScreenshots": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

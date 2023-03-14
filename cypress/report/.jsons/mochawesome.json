@@ -1,0 +1,112 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-03-13T15:54:24.553Z",
+    "end": "2023-03-13T15:54:49.849Z",
+    "duration": 25296,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "29a82f91-35dd-48dd-aa99-bf0ea8ad5423",
+      "title": "",
+      "fullFile": "cypress\\integration\\examples\\HandlingUIElements.js",
+      "file": "cypress\\integration\\examples\\HandlingUIElements.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "bcf13c42-71a4-4494-9b32-f6a9cce39a18",
+          "title": "UI Elements",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify InputBox & Radio buttons",
+              "fullTitle": "UI Elements Verify InputBox & Radio buttons",
+              "timedOut": null,
+              "duration": 21510,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://demo.guru99.com/test/newtours/');\ncy.url().should('include', 'guru99');\ncy.get('input[name=userName]').should('be.visible').should('be.enabled').type(\"mercury\");\ncy.get('input[name=password]').should('be.visible').should('be.enabled').type(\"mercury\");\ncy.get('input[name=submit]').should('be.enabled').click();\ncy.contains('Login Successfully');\ncy.contains('Flights').click();\ncy.get('input[value=roundtrip]').should('be.visible').should('be.checked');\ncy.get('input[value=oneway]').should('be.visible').should('not.be.checked').click();\ncy.get('input[name=findFlights]').should('be.visible').click();",
+              "err": {
+                "message": "CypressError: `cy.visit()` failed trying to load:\n\nhttps://demo.guru99.com/test/newtours/\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > Error: connect ETIMEDOUT 72.52.251.71:443\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer",
+                "estack": "CypressError: `cy.visit()` failed trying to load:\n\nhttps://demo.guru99.com/test/newtours/\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > Error: connect ETIMEDOUT 72.52.251.71:443\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer\n    at <unknown> (https://demo.guru99.com/__cypress/runner/cypress_runner.js:138252:82)\n    at visitFailedByErr (https://demo.guru99.com/__cypress/runner/cypress_runner.js:137644:12)\n    at <unknown> (https://demo.guru99.com/__cypress/runner/cypress_runner.js:138251:11)\n    at tryCatcher (https://demo.guru99.com/__cypress/runner/cypress_runner.js:8914:23)\n    at Promise._settlePromiseFromHandler (https://demo.guru99.com/__cypress/runner/cypress_runner.js:6849:31)\n    at Promise._settlePromise (https://demo.guru99.com/__cypress/runner/cypress_runner.js:6906:18)\n    at Promise._settlePromise0 (https://demo.guru99.com/__cypress/runner/cypress_runner.js:6951:10)\n    at Promise._settlePromises (https://demo.guru99.com/__cypress/runner/cypress_runner.js:7027:18)\n    at _drainQueueStep (https://demo.guru99.com/__cypress/runner/cypress_runner.js:3621:12)\n    at _drainQueue (https://demo.guru99.com/__cypress/runner/cypress_runner.js:3614:9)\n    at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://demo.guru99.com/__cypress/runner/cypress_runner.js:3630:5)\n    at Async.drainQueues (https://demo.guru99.com/__cypress/runner/cypress_runner.js:3500:14)\nFrom Your Spec Code:\n    at Context.eval (webpack:///./cypress/integration/examples/HandlingUIElements.js:8:9)\n\nFrom Node.js Internals:\n  Error: connect ETIMEDOUT 72.52.251.71:443\n      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1187:16)",
+                "diff": null
+              },
+              "uuid": "acaf449a-8b47-4f95-ad08-363da3552ace",
+              "parentUUID": "bcf13c42-71a4-4494-9b32-f6a9cce39a18",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "acaf449a-8b47-4f95-ad08-363da3552ace"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 21510,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress\\report\\.jsons",
+        "charts": true,
+        "reportPageTitle": "Ulrich Demo Report",
+        "embeddedScreenshots": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
