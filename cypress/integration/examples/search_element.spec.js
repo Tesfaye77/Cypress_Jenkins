@@ -47,7 +47,7 @@ describe('Search element', () =>
   });
 
 
-  
+
   it('addComputertrue', function() {
     cy.visit('demo.nopcommerce.com');
     cy.get(':nth-child(1) > .product-item > .details > .add-info > .buttons > .product-box-add-to-cart-button').click();
@@ -63,5 +63,21 @@ describe('Search element', () =>
  
   });
 
-  
+
+
+  it('filteredNotebook', function() {
+
+    cy.visit('demo.nopcommerce.com');
+ 
+    cy.get('.menu-toggle').click();
+    cy.get('.mobile > :nth-child(1) > [href="/computers"]').click();
+    cy.get(':nth-child(2) > .sub-category-item > .picture > a > img').click();
+    cy.get('#attribute-option-9').should('be.visible').check().should('be.checked'); //RAM 8GB
+    cy.get('h1').should('be.visible').should('have.text', 'Notebooks');
+    cy.get('#attribute-option-8').should('be.visible').should('not.be.checked'); //RAM 4GB
+    cy.get('#attribute-option-10').should('be.visible').should('not.be.checked'); //RAM 16GB
+    cy.get('#attribute-option-7').should('be.visible').should('not.be.checked'); //intel corei7
+    cy.get('#attribute-option-6').should('be.visible').should('not.be.checked'); //intel corei5
+    
+  });
 }) 
