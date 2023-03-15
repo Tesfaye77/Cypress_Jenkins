@@ -28,3 +28,20 @@ it('favlist', function() {
 
  
 });
+
+
+
+it('changeqty', function() {
+
+  cy.visit('https://demo.nopcommerce.com/');
+  cy.get(':nth-child(3) > .product-item > .details > .add-info > .buttons > .product-box-add-to-cart-button').click();
+  cy.get('.content > a').should('be.visible');
+  cy.get('.content').should('be.visible');
+  cy.get('.bar-notification').should('have.text', 'The product has been added to your shopping cart');
+  cy.get('#topcartlink').should('be.visible');
+  cy.get('#topcartlink').should('have.text', ' Shopping cart (1) ');
+  cy.get('.cart-label').click();
+  cy.get('input[class=qty-input]').should('be.visible').should('be.enabled').click().clear().type("2")
+  cy.get('#updatecart').click();
+ 
+});
